@@ -13,6 +13,13 @@ app.controller("tecladoController", function($scope, $location, dbService){
                       ['1', '2', '3', '4', '5', '6', '7'],
                       ['8', '9', '0', '. ', ', ', '? ', '! ']];
 
+    $scope.colunas = [['Coluna'],
+                      ['Coluna'],
+                      ['Coluna'],
+                      ['Coluna'],
+                      ['Coluna'],
+                      ['Coluna'],
+                      ['Coluna']];
 
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
@@ -179,4 +186,5 @@ app.controller("tecladoController", function($scope, $location, dbService){
           });
     		});
       }
+
 });

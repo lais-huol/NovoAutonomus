@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <title></title>
   </head>
-  <body>
+  <body ng-controller="tecladoController">
     <div class="row">
 
     <div class="bs-example col-md-9" data-example-id="bordered-table">
@@ -12,13 +13,9 @@
         <thead>
           <tr>
             <th></th>
-            <th click-temporal ng-click="pula_coluna(1)" coluna=1 data-id="coluna" class="ativo"><span class="coluna">Coluna 1</span></th>
-            <th click-temporal ng-click="pula_coluna(2)" coluna=2 data-id="coluna"><span class="coluna">Coluna 2</span></th>
-            <th click-temporal ng-click="pula_coluna(3)" coluna=3 data-id="coluna"><span class="coluna">Coluna 3</span></th>
-            <th click-temporal ng-click="pula_coluna(4)" coluna=4 data-id="coluna"><span class="coluna">Coluna 4</span></th>
-            <th click-temporal ng-click="pula_coluna(5)" coluna=5 data-id="coluna"><span class="coluna">Coluna 5</span></th>
-            <th click-temporal ng-click="pula_coluna(6)" coluna=6 data-id="coluna"><span class="coluna">Coluna 6</span></th>
-            <th click-temporal ng-click="pula_coluna(7)" coluna=7 data-id="coluna"><span class="coluna">Coluna 7</span></th>
+            <th click-temporal ng-click="pula_coluna($index+1)" coluna=$index+1 data-id="coluna" class="ativo" ng-repeat="x in colunas">
+              {{ x }} {{$index + 1}}
+            </th>
           </tr>
         </thead>
         <tbody>
