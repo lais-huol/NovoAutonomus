@@ -13,8 +13,8 @@
         <thead>
           <tr>
             <th></th>
-            <th click-temporal ng-click="pula_coluna($index+1)" coluna=$index+1 data-id="coluna" class="ativo" ng-repeat="x in colunas">
-              {{ x }} {{$index + 1}}
+            <th click-temporal ng-click="pula_coluna($index+1)" coluna=$index+1 data-id="coluna" class="ativo" ng-repeat="x in [1, 2, 3, 4, 5, 6, 7]">
+              Coluna {{x}}
             </th>
           </tr>
         </thead>
