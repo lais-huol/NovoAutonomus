@@ -344,3 +344,23 @@ th[data-id="coluna"]{
   text-align:center;
   line-height: 100px;
 }
+
+.alinhar {
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+td .alinhar_letras{
+  margin: 20px !important;
+  font-size: 50px !important;
+  text-align: center !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

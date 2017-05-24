@@ -13,36 +13,36 @@
           <tr>
             <th></th>
             <th click-temporal ng-click="pula_coluna($index+1)" coluna="{{$index+1}}" data-id="coluna" ng-value="x" ng-repeat="x in [1, 2, 3, 4, 5, 6, 7]">
-              <span class="coluna">Coluna {{x}}</span>
+              <span class="alinhar">Coluna {{x}}</span>
             </th>
           </tr>
         </thead>
         <tbody>
 
             <tr>
-              <th scope="row" linha=1 class="text-center ativo col-md-1" click-temporal ng-click="pula_linha(1)"><span class="linha">Linha 1</span></th>
-              <td linha=1 coluna="{{$index+1}}" class = "col-md-1" ng-repeat="i in alfabeto[0]">{{i}}</td>
+              <th scope="row" linha=1 class="text-center ativo col-md-1" click-temporal ng-click="pula_linha(1)"><span class="alinhar">Linha 1</span></th>
+              <td linha=1 coluna="{{$index+1}}" class = "col-md-1 alinhar_letras" ng-repeat="i in alfabeto[0]">{{i}}</td>
             </tr>
             <tr>
-              <th scope="row" linha=2 class=" text-center col-md-1" click-temporal ng-click="pula_linha(2)"><span class="linha">Linha 2</span></th>
+              <th scope="row" linha=2 class=" text-center col-md-1" click-temporal ng-click="pula_linha(2)"><span class="alinhar">Linha 2</span></th>
               <td linha=2 coluna="{{$index+1}}" class = "col-md-1" ng-repeat="i in alfabeto[1]">{{i}}</td>
             </tr>
             <tr>
-              <th scope="row" linha=3 class=" text-center col-md-1" click-temporal ng-click="pula_linha(3)"><span class="linha">Linha 3</span></th>
+              <th scope="row" linha=3 class=" text-center col-md-1" click-temporal ng-click="pula_linha(3)"><span class="alinhar">Linha 3</span></th>
               <td linha=3 coluna="{{$index+1}}" class = "col-md-1" ng-repeat="i in alfabeto[2]">{{i}}</td>
             </tr>
             <tr>
-              <th scope="row" linha=4 class=" text-center col-md-1" click-temporal ng-click="pula_linha(4)"><span class="linha">Linha 4</span></th>
+              <th scope="row" linha=4 class=" text-center col-md-1" click-temporal ng-click="pula_linha(4)"><span class="alinhar">Linha 4</span></th>
               <td linha=4 coluna="{{$index+1}}" class = "col-md-1" ng-repeat="i in alfabeto[3]">{{i}}</td>
               <td linha=4 coluna=7 class="col-md-1" style="font-size: 25px;" > <i class="glyphicon glyphicon-save"> Espaço</i></td>
             </tr>
             <tr>
-              <th scope="row" linha=5 class=" text-center col-md-1" click-temporal ng-click="pula_linha(5)"><span class="linha">Linha 5</span></th>
+              <th scope="row" linha=5 class=" text-center col-md-1" click-temporal ng-click="pula_linha(5)"><span class="alinhar">Linha 5</span></th>
               <td linha=5 coluna="{{$index+1}}" class = "col-md-1" ng-repeat="i in alfabeto[4]">{{i}}</td>
             </tr>
 
             <tr>
-              <th scope="row" linha=6 class=" text-center col-md-1" click-temporal ng-click="pula_linha(6)"><span class="linha">Linha 6</span></th>
+              <th scope="row" linha=6 class=" text-center col-md-1" click-temporal ng-click="pula_linha(6)"><span class="alinhar">Linha 6</span></th>
               <td linha=6 coluna="{{$index+1}}" class = "col-md-1" ng-repeat="i in alfabeto[5]">{{i}}</td>
             </tr>
 
