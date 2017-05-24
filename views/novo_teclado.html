@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <title></title>
   </head>
   <body ng-controller="tecladoController">
@@ -13,14 +12,22 @@
         <thead>
           <tr>
             <th></th>
-            <th click-temporal ng-click="pula_coluna($index+1)" coluna=$index+1 data-id="coluna" class="ativo" ng-repeat="x in [1, 2, 3, 4, 5, 6, 7]">
-              Coluna {{x}}
+            <th click-temporal ng-click="pula_coluna($index+1)" coluna="{{$index+1}}" data-id="coluna" ng-value="x" ng-repeat="x in [1, 2, 3, 4, 5, 6, 7]">
+              <span class="coluna">Coluna {{x}}</span>
             </th>
           </tr>
         </thead>
         <tbody>
+
+          <!--
+            <tr ng-repeat="item in alfabeto">
+            <th scope="row" linha="{{index+1}}" class="text-center ativo col-md-1" click-temporal ng-click="pula_linha(index+1)"><span class="linha">Linha {{index+1}}</span></th>
+            <td coluna="{{$index+1}}" class = "col-md-1" ng-repeat="i in item">{{i}}</td>
+            </tr>  -->
+
           <tr>
             <th scope="row" linha=1 class="text-center ativo col-md-1" click-temporal ng-click="pula_linha(1)"><span class="linha">Linha 1</span></th>
+
             <td linha=1 coluna=1 class="col-md-1">{{alfabeto[0][0]}}</td>
             <td linha=1 coluna=2 class="col-md-1">{{alfabeto[0][1]}}</td>
             <td linha=1 coluna=3 class="col-md-1">{{alfabeto[0][2]}}</td>
@@ -28,7 +35,6 @@
             <td linha=1 coluna=5 class="col-md-1">{{alfabeto[0][4]}}</td>
             <td linha=1 coluna=6 class="col-md-1">{{alfabeto[0][5]}}</td>
             <td linha=1 coluna=7 class="col-md-1">{{alfabeto[0][6]}}</td>
-
           </tr>
           <tr>
             <th scope="row" linha=2 class=" text-center col-md-1" click-temporal ng-click="pula_linha(2)"><span class="linha">Linha 2</span></th>
@@ -59,7 +65,7 @@
               <td linha=4 coluna=4 class="col-md-1">{{alfabeto[3][3]}}</td>
               <td linha=4 coluna=5 class="col-md-1">{{alfabeto[3][4]}}</td>
               <td linha=4 coluna=6 class="col-md-1">{{alfabeto[3][5]}}</td>
-              <td linha=4 coluna=7 class="col-md-1" style="font-size: 25px;" >Espaço</td>
+              <td linha=4 coluna=7 class="col-md-1" style="font-size: 25px;" ><i class="glyphicon glyphicon-save"> Espaço</i></td>
               </tr>
               <tr>
                 <th scope="row" linha=5 class=" text-center col-md-1" click-temporal ng-click="pula_linha(5)"><span class="linha">Linha 5</span></th>
@@ -112,7 +118,7 @@
             <span class="glyphicon glyphicon-text-background"> Acentos</span>
         </button>
         <button type="button" class="col-md-2 btn btn-danger btn-group" click-temporal ng-click="backspace()">
-            <i class="material-icons">backspace</i>
+            <i class="glyphicon glyphicon-remove-circle"> Backspace</i>
         </button>
 
 
