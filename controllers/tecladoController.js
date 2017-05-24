@@ -9,11 +9,11 @@ app.controller("tecladoController", function($scope, $location, dbService){
     $scope.alfabeto = [['A', 'B', 'C', 'D', 'E', 'F', 'G'],
                       ['H', 'I', 'J', 'K', 'L', 'M', 'N'],
                       ['O', 'P', 'Q', 'R', 'S', 'T', 'U'],
-                      ['V', 'W', 'X', 'Y', 'Z', 'Ç', ' '],
+                      ['V', 'W', 'X', 'Y', 'Z', 'Ç',],
                       ['1', '2', '3', '4', '5', '6', '7'],
                       ['8', '9', '0', '. ', ', ', '? ', '! ']];
 
-    
+
 
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
@@ -55,7 +55,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
           $scope.alfabeto = [['A', 'B', 'C', 'D', 'E', 'F', 'G'],
                             ['H', 'I', 'J', 'K', 'L', 'M', 'N'],
                             ['O', 'P', 'Q', 'R', 'S', 'T', 'U'],
-                            ['V', 'W', 'X', 'Y', 'Z', 'Ç', ' '],
+                            ['V', 'W', 'X', 'Y', 'Z', 'Ç',],
                             ['1', '2', '3', '4', '5', '6', '7'],
                             ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
@@ -63,7 +63,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
           $scope.alfabeto = [['a', 'b', 'c', 'd', 'e', 'f', 'g'],
                             ['h', 'i', 'j', 'k', 'l', 'm', 'n'],
                             ['o', 'p', 'q', 'r', 's', 't', 'u'],
-                            ['v', 'w', 'x', 'y', 'z', 'ç', ' '],
+                            ['v', 'w', 'x', 'y', 'z', 'ç',],
                             ['1', '2', '3', '4', '5', '6', '7'],
                             ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
@@ -71,7 +71,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
           $scope.alfabeto = [['á', 'à', 'ã', 'â', 'À', 'Á', 'Ã'],
                             ['Â', 'É', 'é', 'í', 'Í', 'ú', 'Ú'],
                             ['Ó', 'ó', 'õ', 'Õ', 'ô', 'Õ', 'Ê'],
-                            ['ê', '', '', '', '', '', ' '],
+                            ['ê', '', '', '', '', '',],
                             ['1', '2', '3', '4', '5', '6', '7'],
                             ['8', '9', '0', '. ', ', ', '? ', '! ']];
         }
@@ -124,6 +124,9 @@ app.controller("tecladoController", function($scope, $location, dbService){
     new Audio("static/images/clique.mp3").play();
     if (a == 'enter'){
       var tecla = "\n";
+    }
+    else if($scope.linha==4 && $scope.coluna==7){
+      var tecla = " ";
     }
     else{
       var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
