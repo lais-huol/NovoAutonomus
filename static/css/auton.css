@@ -373,10 +373,10 @@ td .alinhar_letras{
     height: 100%;
 }
 
-.content {
+.content  {
     position: absolute;
     top: 50%;
-    left: 18%;
+    left: 15%;
     width: 79%;
     text-align: center;
     -webkit-transform: translateY( -50% );
