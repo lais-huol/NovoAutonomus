@@ -1,6 +1,8 @@
 "USE STRICT"
 
 app.controller("tecladoController", function($scope, $location, dbService){
+
+
     $scope.frase_total = "";
     $scope.palavra_atual = "";
     $scope.palavras = [""];
@@ -109,7 +111,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         $("th[scope='row']").removeClass("ativo");
         $("th[linha="+ muda + "]").addClass("ativo");
         $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("background-color", "#ddc6a6");
-
+        $("#letra").html($scope.alfabeto[$scope.linha-1][$scope.coluna-1]);
      };
 
    $scope.pula_coluna = function(muda) {
@@ -118,6 +120,8 @@ app.controller("tecladoController", function($scope, $location, dbService){
         $("th[coluna="+ muda + "]").addClass("ativo");
         $("td[linha="+ $scope.linha + "][coluna="+muda+"]").css("background-color", "#ddc6a6");
         $scope.coluna=muda;
+        $("#letra").html($scope.alfabeto[$scope.linha-1][$scope.coluna-1]);
+
     };
 
   $scope.adicionar_tecla = function(a) {

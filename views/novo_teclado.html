@@ -10,21 +10,21 @@
     <div class="row">
 
     <div  data-example-id="bordered-table">
-      <div class="col-md-10">
-          <textarea rows="4" cols="20" style="font-size:30px;">{{frase_total}}</textarea>
+      <div class="col-md-12">
+          <textarea rows="5" cols="50" style="font-size:30px;">{{frase_total}}</textarea>
           <br class="underline">
           <br>
       </div>
 
-      <div class="col-md-12 btn-toolbar">
+      <div class="col-md-12">
 
-        <button type="button" class="btn btn-info btn-group">Coluna 1</button>
-        <button type="button" class="btn btn-info btn-group">Coluna 2</button>
-        <button type="button" class="btn btn-info btn-group">Coluna 3</button>
-        <button type="button" class="btn btn-info btn-group">Coluna 4</button>
-        <button type="button" class="btn btn-info btn-group">Coluna 5</button>
-        <button type="button" class="btn btn-info btn-group">Coluna 6</button>
-        <button type="button" class="btn btn-info btn-group">Coluna 7</button>
+        <button type="button" class="btn btn-info btn-group" click-temporal ng-click="pula_coluna(1)" coluna=1 data-id="coluna">Coluna 1</button>
+        <button type="button" class="btn btn-info btn-group" click-temporal ng-click="pula_coluna(2)" coluna=2 data-id="coluna">Coluna 2</button>
+        <button type="button" class="btn btn-info btn-group" click-temporal ng-click="pula_coluna(3)" coluna=3 data-id="coluna">Coluna 3</button>
+        <button type="button" class="btn btn-info btn-group" click-temporal ng-click="pula_coluna(4)" coluna=4 data-id="coluna">Coluna 4</button>
+        <button type="button" class="btn btn-info btn-group" click-temporal ng-click="pula_coluna(5)" coluna=5 data-id="coluna">Coluna 5</button>
+        <button type="button" class="btn btn-info btn-group" click-temporal ng-click="pula_coluna(6)" coluna=6 data-id="coluna">Coluna 6</button>
+        <button type="button" class="btn btn-info btn-group" click-temporal ng-click="pula_coluna(7)" coluna=7 data-id="coluna">Coluna 7</button>
 
       </div>
 
@@ -32,27 +32,26 @@
 
     </div>
 
-    <div class="col-md-10">
+    <div class="col-md-12">
         <br>
-        <button type="button" class="btn btn-info btn-group">Pular Linha </button>
-        <textarea rows="3" cols="8" style="font-size:30px;">{{frase_total}}</textarea>
-        <button type="button" class="btn btn-info btn-group">Ok</button>
+        <button type="button" class="btn btn-warning btn-group">Pular Linha </button>
+        <span id="letra"> {{letra}} </span>
+        <button type="button" class="btn btn-success btn-group ok" click-temporal ng-click="adicionar_tecla()">  Confirma  </button>
         <br class="underline">
         <br>
     </div>
 
     <div class="row">
     <div  data-example-id="bordered-table">
-    <div class="col-md-12 btn-toolbar linha">
+    <div class="col-md-12">
 
-        <button type="button" class="btn btn-info btn-group">Linha 1</button>
-        <button type="button" class="btn btn-info btn-group">Linha 2</button>
-        <button type="button" class="btn btn-info btn-group">Linha 3</button>
-        <button type="button" class="btn btn-info btn-group">Linha 4</button>
-        <button type="button" class="btn btn-info btn-group">Linha 5</button>
-        <button type="button" class="btn btn-info btn-group">Linha 6</button>
-        <button type="button" class="btn btn-info btn-group">Linha 6</button>
-        <button type="button" class="btn btn-danger btn-group"> Apagar </button>
+        <button type="button" class="btn btn-info btn-group" scope="row" linha=1 click-temporal ng-click="pula_linha(1)" >Linha 1</button>
+        <button type="button" class="btn btn-info btn-group" scope="row" linha=2 click-temporal ng-click="pula_linha(2)" >Linha 2</button>
+        <button type="button" class="btn btn-info btn-group" scope="row" linha=3 click-temporal ng-click="pula_linha(3)" >Linha 3</button>
+        <button type="button" class="btn btn-info btn-group" scope="row" linha=4 click-temporal ng-click="pula_linha(4)" >Linha 4</button>
+        <button type="button" class="btn btn-info btn-group" scope="row" linha=5 click-temporal ng-click="pula_linha(5)" >Linha 5</button>
+        <button type="button" class="btn btn-info btn-group" scope="row" linha=6 click-temporal ng-click="pula_linha(6)" >Linha 6</button>
+        <button type="button" class="btn btn-danger btn-group" click-temporal ng-click="backspace()"> Apagar </button>
 
     </div>
   </div>
@@ -63,8 +62,6 @@
 </div>
 
 <!--
-
-
 
       <div class="col-md-12 btn-toolbar" role="toolbar">
         <button type="button" class="btn btn-warning btn-group col-md-1 enter" click-temporal ng-click="adicionar_tecla('enter')">
