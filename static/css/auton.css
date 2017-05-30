@@ -317,8 +317,21 @@ input[type="text"]{
 .btn-number{
   height: 115px !important;
 }
+/* Ajustando o botao ok */
 .ok{
-  width: 175px !important;
+  width: 200px !important;
+  margin-right: 5px;
+}
+/* Ajustando os botoes que modificam letra */
+.maiuscula{
+  width: 225px !important;
+  margin-right: 5px;
+}
+
+.minuscula{
+  width: 225px !important;
+  margin-right: 5px;
+  margin-left: 8px;
 }
 th{
   height: 100px;
@@ -330,21 +343,16 @@ th[data-id="coluna"]{
   background-color: #00b3b3;
 }
 
-/* Centralizando a vistualização da Coluna */
+/* Tamanho botao das colunas*/
 .coluna{
-  width: 100%;
-  float:left;
-  text-align:center;
-  line-height:125px;
-  font-size: 20px;
+  width: 140px;
+  margin-right: 5px;
 }
 
-/* Centralizando a vistualização da Linha */
+/* Tamanho botao das linhas */
 .linha{
-  width: 100%;
-  float:left;
-  text-align:center;
-  line-height: 100px;
+  width: 140px;
+  margin-right: 5px;
 }
 
 .alinhar {
@@ -384,9 +392,15 @@ td .alinhar_letras{
     transform: translateY( -50% );
 }
 
-#letra{
-  width: 200px;
-  height: 200px;
-  margin: 100px;
+.estiloletra{
+  min-height: 100%;
+  position: relative;
+  min-width: 100%;
+  padding: 40px;
+  padding-left: 45px;
+  padding-top: 10px;
+  width: 20px;
+  height: 20px;
+  border-style: solid;
   font-size: 50px;
 }

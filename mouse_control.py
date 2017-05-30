@@ -25,7 +25,6 @@ sub_port = req.recv_string()
 sub = context.socket(zmq.SUB)
 sub.connect("tcp://{}:{}".format(addr, sub_port))
 sub.setsockopt_string(zmq.SUBSCRIBE, 'surface')
-
 smooth_x, smooth_y = 0.5, 0.5
 
 # screen size

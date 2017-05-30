@@ -15,8 +15,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
                       ['1', '2', '3', '4', '5', '6', '7'],
                       ['8', '9', '0', '. ', ', ', '? ', '! ']];
 
-
-
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
     function pesquisar() {
@@ -108,16 +106,16 @@ app.controller("tecladoController", function($scope, $location, dbService){
     $scope.pula_linha = function(muda) {
         $scope.linha=muda;
         $("td").css("background-color", "#EFEFEF");
-        $("th[scope='row']").removeClass("ativo");
-        $("th[linha="+ muda + "]").addClass("ativo");
+        $("button[scope='row']").removeClass("active");
+        $("button[linha="+ muda + "]").addClass("active");
         $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("background-color", "#ddc6a6");
         $("#letra").html($scope.alfabeto[$scope.linha-1][$scope.coluna-1]);
      };
 
    $scope.pula_coluna = function(muda) {
         $("td").css("background-color", "#EFEFEF");
-        $("th[data-id='coluna']").removeClass("ativo");
-        $("th[coluna="+ muda + "]").addClass("ativo");
+        $("button[data-id='coluna']").removeClass("active");
+        $("button[coluna="+ muda + "]").addClass("active");
         $("td[linha="+ $scope.linha + "][coluna="+muda+"]").css("background-color", "#ddc6a6");
         $scope.coluna=muda;
         $("#letra").html($scope.alfabeto[$scope.linha-1][$scope.coluna-1]);
