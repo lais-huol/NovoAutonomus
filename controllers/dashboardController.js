@@ -7,9 +7,7 @@ app.directive('clickTemporal', function() {
         link: function(scope, element, attrs) {
           var timer;
           element.bind('mouseenter', function($event) {
-            if(!timer != null) {
-                clearTimeout(timer);
-            }
+
             timer = setTimeout(function () {
                 if(acao) {
                     if ($event.target.nodeName == 'TEXTAREA') {
@@ -29,7 +27,7 @@ app.directive('clickTemporal', function() {
         }
     };
 });
-
+/*
 app.directive('mdPrevButton', function() {
   return {
         link: function(scope, element, attrs) {
@@ -139,7 +137,7 @@ app.directive('startStop', function() {
         }
     };
 });
-
+*/
 app.controller("dashboardController", function($scope, $location){
 
 });

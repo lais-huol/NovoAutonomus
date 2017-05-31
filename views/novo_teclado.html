@@ -11,7 +11,7 @@
 
     <div  data-example-id="bordered-table">
       <div class="col-md-12">
-          <textarea rows="5" cols="60" style="font-size:30px;">{{frase_total}}</textarea>
+          <textarea rows="5" cols="63" style="font-size:30px;">{{frase_total}}</textarea>
           <br class="underline">
           <br>
       </div>
@@ -34,9 +34,9 @@
 
     <div class="col-md-12">
         <br>
-        <button type="button" class="btn btn-warning btn-group ok">Pular Linha </button>
+        <button type="button" class="btn btn-warning btn-group ok">Pula Linha </button>
         <button type="button" class="btn btn-info btn-group maiuscula" click-temporal ng-click="zerar('maiu')"><span class="glyphicon glyphicon-resize-full">Maiúsculas</span></button>
-        <span id="letra" class="estiloletra"> A </span>
+        <span id="letra" class="estiloletra" data-ng-click="myFun()" > A </span>
         <button type="button" class="btn btn-info btn-group minuscula" click-temporal ng-click="zerar('minu')"><span class="glyphicon glyphicon-resize-small">Minúsculas </span></button>
         <button type="button" class="btn btn-success btn-group ok" click-temporal ng-click="adicionar_tecla()"> Confirma </button>
         <br class="underline">

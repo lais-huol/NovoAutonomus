@@ -133,9 +133,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
     else{
       var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
     }
-    if (tecla == ". " || tecla == ", "){
-      salvar();
-    }
+
 
     $scope.frase_total += tecla;
 
@@ -148,8 +146,14 @@ app.controller("tecladoController", function($scope, $location, dbService){
       }
       });
       $scope.voltar();
+      if (tecla == ". " || tecla == ", "){
+        var tecla = $scope.alfabeto[$scope.linha-1][$scope.coluna-1];
+        salvar();
+        $scope.zerar("maiu");
+      }
       pesquisar();
       $("textarea").scrollTop($("textarea")[0].scrollHeight);
+
     }
 
   $scope.backspace = function() {
