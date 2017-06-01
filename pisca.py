@@ -3,8 +3,10 @@ from pyglui import ui
 from collections import deque
 from itertools import islice
 import numpy as np
+import json
 import math
 import logging
+from os.path import expanduser
 logger = logging.getLogger(__name__)
 
 
@@ -27,6 +29,7 @@ class Deteccao_Pisca(Plugin):
         self.confidence_histories = (deque(maxlen=self.tamanho_historico), deque(maxlen=self.tamanho_historico))
         self.timestamp_histories = (deque(maxlen=self.tamanho_historico), deque(maxlen=self.tamanho_historico))
         self.eyes_are_alive = g_pool.eyes_are_alive
+        self.diretorio = ''
 
         self.iniciou_piscada = False
 
@@ -34,12 +37,17 @@ class Deteccao_Pisca(Plugin):
         self.menu = None
 
     def init_gui(self):
+
+        def mudarDiretorio(d):
+            self.diretorio = d
+
         self.menu = ui.Growing_Menu('Detector de piscada')
         self.g_pool.sidebar.append(self.menu)
         self.menu.append(ui.Info_Text('Esse plugin detecta a piscada do olho.'))
         self.menu.append(ui.Slider('tamanho_historico', self, min=1.0, max=100.0))
         self.menu.append(ui.Slider('confianca_piscada', self, min=0.5, max=1.0))
         self.menu.append(ui.Slider('tempo_minimo', self, min=0.5, max=4.0))
+        self.menu.append(ui.Text_Input('diretorio', setter=mudarDiretorio, label=u'Diretório', getter=lambda: '{}'.format(self.diretorio)))
         self.menu.append(ui.Button('Fechar', self.close))
 
     def deinit_gui(self):
@@ -105,7 +113,14 @@ class Deteccao_Pisca(Plugin):
                 blink_entry = {
                     'topic': 'blink',
                     'tempo': tempo,
+                    'timestamp': self.timestamp_histories[pt['id']][self.tamanho_historico-1]
                 }
+
+                home = expanduser('~')
+                logger.info(home)
+                target = open(home + '/pisca.txt', 'w')
+                target.write(json.dumps(blink_entry))
+                target.close()
 
                 if 'blinks' not in events:
                     events['blinks'] = []
