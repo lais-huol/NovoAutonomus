@@ -21,8 +21,8 @@ class Deteccao_Pisca(Plugin):
         self.history_length_per_fps = 0.2
 
         self.tamanho_historico = 20
-        self.confianca_piscada = 0.9
-        self.tempo_minimo = 0.5
+        self.confianca_piscada = 0.8
+        self.tempo_minimo = 0.7
 
         # The maximum length of the history needs to be set a priori. If we are assuming a maximum frame rate of 120 FPS
         # and a generous maximum onset duration of a blink of 0.5 seconds, 60 frames of history should always be enough

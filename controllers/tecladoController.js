@@ -1,7 +1,7 @@
 "USE STRICT"
 
 app.controller("tecladoController", function($scope, $location, dbService){
-    $scope.frase_total = "a";
+    $scope.frase_total = "";
     $scope.palavra_atual = "";
     $scope.palavras = [""];
     $scope.linha = 1;
@@ -104,6 +104,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
           // done
         }
         });
+      $("textarea").html($scope.frase_total);
     }
 
     function pula_linha() {
@@ -184,6 +185,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
           $scope.zerar("maiu");
         }
       }
+    $("textarea").html($scope.frase_total);
     }
 
   $scope.backspace = function() {
@@ -207,30 +209,32 @@ app.controller("tecladoController", function($scope, $location, dbService){
       }
       });
     });
-
+    $("textarea").html($scope.frase_total);
   }
+
   remote.on("blink", function(){
     console.log("aaaa");
     $scope.adicionar_tecla();
     $("textarea").html($scope.frase_total);
   });
-      function salvar() {
-        // Só funciona com o banco atual, presume que o delimitador de início de frase está salvo na primeira posição
-        var anterior = 1, split = $scope.frase_total.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').replace(/\s+$/g, '').split(' ');
 
-        split.forEach(function(i){
-          dbService.runAsync(`SELECT * FROM palavra WHERE texto = '${i}';`, function(data){
-              if (data.length){
-                 dbService.runAsync(`UPDATE palavra SET ocorrencias = ${data[0]}.ocorrencias + 1} WHERE id = ${data[0].id}`, function(){});
-                 dbService.runAsync(`INSERT INTO ocorrencia (primaria_id, secundaria_id, data) VALUES(${anterior}, ${data[0].id}, '${new Date().toISOString()}');`, function(){});
-                 anterior = data[0].id;
-              }else{
-                  dbService.runAsync(`INSERT INTO palavra (texto, ocorrencias, data) VALUES('${i}',1,'${new Date().toISOString()}');`, function(data){
-                    dbService.runAsync(`INSERT INTO ocorrencia (primaria_id, secundaria_id, data) VALUES(${anterior}, ${data}, '${new Date().toISOString()}');`, function(){});
-                    anterior = data;
-                  });
-              }
-          });
-    		});
-      }
+  function salvar() {
+    // Só funciona com o banco atual, presume que o delimitador de início de frase está salvo na primeira posição
+    var anterior = 1, split = $scope.frase_total.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').replace(/\s+$/g, '').split(' ');
+
+    split.forEach(function(i){
+      dbService.runAsync(`SELECT * FROM palavra WHERE texto = '${i}';`, function(data){
+          if (data.length){
+             dbService.runAsync(`UPDATE palavra SET ocorrencias = ${data[0]}.ocorrencias + 1} WHERE id = ${data[0].id}`, function(){});
+             dbService.runAsync(`INSERT INTO ocorrencia (primaria_id, secundaria_id, data) VALUES(${anterior}, ${data[0].id}, '${new Date().toISOString()}');`, function(){});
+             anterior = data[0].id;
+          }else{
+              dbService.runAsync(`INSERT INTO palavra (texto, ocorrencias, data) VALUES('${i}',1,'${new Date().toISOString()}');`, function(data){
+                dbService.runAsync(`INSERT INTO ocorrencia (primaria_id, secundaria_id, data) VALUES(${anterior}, ${data}, '${new Date().toISOString()}');`, function(){});
+                anterior = data;
+              });
+          }
+      });
+		});
+  }
 });
