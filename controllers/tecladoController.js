@@ -1,7 +1,7 @@
 "USE STRICT"
 
 app.controller("tecladoController", function($scope, $location, dbService){
-    $scope.frase_total = "";
+    $scope.frase_total = "a";
     $scope.palavra_atual = "";
     $scope.palavras = [""];
     $scope.linha = 1;
@@ -13,7 +13,6 @@ app.controller("tecladoController", function($scope, $location, dbService){
                       ['1', '2', '3', '4', '5', '6', '7'],
                       ['8', '9', '0', '. ', ', ', '? ', '! ']];
     $scope.moment = "linha";
-
 
     // Retirar bug
     // dbService.runAsync(`SELECT * FROM ocorrencias`, function(){});
@@ -118,7 +117,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         $("th[linha="+ muda + "]").addClass("ativo");
         $("td[linha="+ muda + "][coluna="+$scope.coluna+"]").css("background-color", "#ddc6a6");
 
-        setTimeout(pula_linha, 1000);
+        setTimeout(pula_linha, 2000);
         }
 
      };
@@ -146,7 +145,7 @@ app.controller("tecladoController", function($scope, $location, dbService){
         $("th[coluna="+ muda + "]").addClass("ativo");
         $("td[linha="+ $scope.linha + "][coluna="+muda+"]").css("background-color", "#ddc6a6");
 
-        setTimeout(pula_coluna, 1000);
+        setTimeout(pula_coluna, 2000);
       }
     };
 
@@ -210,7 +209,11 @@ app.controller("tecladoController", function($scope, $location, dbService){
     });
 
   }
-
+  remote.on("blink", function(){
+    console.log("aaaa");
+    $scope.adicionar_tecla();
+    $("textarea").html($scope.frase_total);
+  });
       function salvar() {
         // Só funciona com o banco atual, presume que o delimitador de início de frase está salvo na primeira posição
         var anterior = 1, split = $scope.frase_total.toLowerCase().replace(/[\'"<>!@#$%&*().,:;\/=?\[\]\\\+\|]+|[-+\s]/g, ' ').replace(/\s+/g, ' ').replace(/\s+$/g, '').split(' ');
