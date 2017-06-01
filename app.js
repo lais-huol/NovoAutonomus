@@ -32,6 +32,8 @@ var spawn = require('child_process').spawn;
 var Evento = new EventEmitter();
 
 var arduino = require('./services/arduino.js');
+var pupil_remote = require('./services/pupil_remote.js');
+var remote = pupil_remote.init();
 
 arduino.init();
 
@@ -49,5 +51,10 @@ arduino.events.on('sent', function (data){
 });
 
 arduino.events.on('data', function (data){
+  console.log(data);
+});
+
+
+remote.on('blink', function(data){
   console.log(data);
 });
